@@ -93,13 +93,13 @@ function displayWeather(data) {
     // maan.style.background = "url('Kung fu Panda-Walk Cycle (1).mp4')";
     maan.style.backgroundSize = "cover"; // Ensure the video covers the div
     maan.style.backgroundRepeat = "no-repeat"; // Prevent repeating
-    pan.style.display = "block"; // Hide the panda image
+    pan.style.display = "none"; // Hide the panda image
     pan.src = "7ynk5l9j-removebg-preview.png"
 
 
   } else {
     // Fallback: show the panda image and remove the video background
-    pan.src ="pandabeach"
+    pan.src ="pandabeach.png"
     pan.style.display = "block"; // Show the panda image
     maan.style.background = "none"; // Remove the video background
     maan.style.backgroundColor = "#7a777459"; // Fallback background color
