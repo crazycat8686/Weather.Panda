@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        height: 100vh;
+        font-size: 50px;
+        font-weight: bolder;
+      }
+
+      .login-container {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 5%;
+        border: 2px solid #555;
+        border-radius: 11px;
+      }
+
+      .input-group {
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 6px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        border: 1px solid #111222;
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      .input-group i {
+        margin-right: 10px;
+        color: #555;
+        font-size: 1.5rem;
+      }
+
+      .input-group input {
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 15px;
+      }
+
+      button {
+        display: flex;
+        margin-top: 7px;
+        height: 7vh;
+        border-radius: 6px;
+        background-color: wheat;
+        border: none;
+        width: 25%;
+        font-weight: bolder;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 13px;
+      }
+
+      button:hover {
+        color: orangered;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="head" style="font-size: 56px; text-align: center">Login</h1>
+
+    <div class="login-container">
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="Username" required id="user" />
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" required id="pass" />
+      </div>
+
+      <button type="submit" onclick="signIn()">Sign-In</button>
+    </div>
+
+    <script>
+      async function signIn() {
+        const username = document.getElementById("user").value;
+        const password = document.getElementById("pass").value;
+
+        try {
+          const response = await fetch("response.json");
+          const data = await response.json();
+
+          const user = data.login.find((i) => i.uname === username);
+
+          if (user) {
+            if (user.pass === password) {
+              localStorage.setItem("uname", username);
+              alert("LOGIN SUCCESSFUL");
+            } else {
+              alert("INCORRECT PASSWORD");
+            }
+          } else {
+            alert("INCORRECT USER NAME");
+          }
+        } catch (error) {
+          console.error("Error loading JSON file:", error);
+          alert("Failed to load login details");
+        }
+      }
+    </script>
+  </body>
+</html>

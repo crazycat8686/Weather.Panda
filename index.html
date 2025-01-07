@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation System</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+      @media screen and (min-width: 0px) and (max-width : 700px){
+        body{
+        }
+        .grid {
+        display: grid;
+        grid-template-areas:
+        "main1 "
+        "main3 "
+        "main2 ";
+        grid-template-columns: 2fr;
+        grid-template-rows:  15fr 13fr 24fr;
+        gap: 16px;
+        width: 95vw;
+        height: 300vh;
+        margin: 20px auto;
+
+      }
+      .container {
+        margin-top: 12px;
+        /* background-color: mintcream; */
+        background-color: rgba(254, 167, 5, 0.897);
+
+        border-radius: 25px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+        box-shadow: 9px 14px 34px #03132293;
+      }
+      #pred {
+        background-color: #7a777459;
+        max-width: fit-content;
+        margin-left: auto;
+        display: none;
+
+        margin-right: auto;
+        backdrop-filter: blur(70px);
+        border-radius: 40px;
+        padding: 10px;
+        overflow: auto;
+      }
+
+      .main1 {
+        /* background-color: #7a777459; */
+        background-image: url(pandabeach.png);
+        grid-area: main1;
+        border-radius: 40px;
+        padding-top: 0%;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* overflow: auto; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 95%;
+        /* background: url("Kung fu Panda-Walk Cycle (1).mp4"); */
+      }
+
+      .main2 {
+        background-color: #7a777459;
+        backdrop-filter: blur(70px);
+        grid-area: main2;
+        border-radius: 40px;
+        padding: 10px;
+        overflow: auto;
+      }
+
+      .main3 {
+        background-color: #7a777459;
+        backdrop-filter: blur(70px);
+        grid-area: main3;
+        border-radius: 40px;
+        padding: 10px;
+        justify-content: space-between;
+        overflow: auto;
+      }
+
+      .main4 {
+        display: none;
+        background-color: #7a777459;
+        backdrop-filter: blur(20px);
+        grid-area: main4;
+        border-radius: 40px;
+        padding: 10px;
+        /* overflow: auto; */
+      }
+      #home,#hou,#peee,#lo{
+        display: none;
+
+      }
+      #pandaimg{
+        display: none;
+
+        .main1::-webkit-scrollbar {
+        display: hidden;
+      }
+      .main1:hover {
+        box-shadow: 9px 14px 34px #031322b9;
+        transition: all ease-in-out 0.3s;
+        width: 100vw;
+        border-radius: 55px;
+        border: 1px solid ff6500;
+        background-color: #ffff;
+        backdrop-filter: blur(0%);
+      }
+      .main2:hover {
+        box-shadow: 9px 14px 34px #031322b9;
+        transition: all ease-in-out 0.3s;
+        /* width: 100%; */
+        border-radius: 55px;
+        border: 1px solid ff6500;
+      }
+      .main3:hover {
+        box-shadow: 9px 14px 34px #031322b9;
+        transition: all ease-in-out 0.3s;
+        width: 100%;
+        border-radius: 55px;
+        border: 1px solid ff6500;
+      }
+      .main0:hover {
+        box-shadow: 9px 14px 34px #031322b9;
+        transition: all ease-in-out 0.3s;
+        /* width: 100%; */
+        border-radius: 55px;
+        border: 1px solid ff6500;
+        text-shadow: 10px 20px 30px #22140183;
+      }
+      }
+
+      }
+      
+
+
+      
+
+      body {
+        /* background-image: url(/journey-painting-wallpaper\ \(1\).jpg); */
+        /* background-image: url(galaxy.jpg); */
+        /* background-color: #f4f6ff; */
+        background-size: cover;
+        color: #011222;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        font-family: Lexend, sans-serif;
+      }
+
+      .container {
+        margin-top: 12px;
+        /* background-color: mintcream; */
+        background-color: rgba(254, 167, 5, 0.897);
+
+        border-radius: 25px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+        box-shadow: 9px 14px 34px #03132293;
+      }
+
+      button {
+        margin-right: 45px;
+        color: #011222;
+        background: transparent;
+        border: none;
+        font-family: Lexend;
+        border-radius: 40px;
+        font-weight: bolder;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        padding-right: 2%;
+        flex-grow: 1;
+      }
+
+      input {
+        text-align: center;
+        border-radius: 7px;
+        font-weight: bolder;
+        color: black;
+        border: none;
+        font-size: medium;
+        width: 70%;
+        background-color: rgb(247, 225, 182);
+        margin-left: 20px;
+      }
+
+      input:hover {
+        border-color: goldenrod;
+        transition: all ease-in-out 0.22s;
+      }
+
+      button:hover {
+        border-radius: 7px;
+        /* background-color: rgba(163, 155, 138, 0.26); */
+        background-color: rgb(247, 225, 182);
+        /* background-color:color-mix(in srgb-linear, goldenrod 80%, yellow 20%); */
+
+        transition: all ease-in-out 0.2s;
+        cursor: pointer;
+      }
+
+      /* .grid {
+        display: grid;
+        grid-template-areas:
+        "main1 main0"
+        "main1 main2"
+        "main3 main2"
+        "main4 main4";
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 9.5fr 13fr 24fr;
+        gap: 16px;
+        width: 95%;
+        height: 300vh;
+        margin: 20px auto;
+      } */
+
+      /* .main1 {
+        background-color: #7a777459;
+        background-image: url(pngtree-relaxed-panda-bear-lounging-in-a-beach-chair-png-image_12243119.png);
+        backdrop-filter: blur(70px);
+        grid-area: main1;
+        border-radius: 40px;
+        padding-top: 0%;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background: url("Kung fu Panda-Walk Cycle (1).mp4"); */
+      /* } */ */
+
+      /* .main2 {
+        background-color: #7a777459;
+        backdrop-filter: blur(70px);
+        grid-area: main2;
+        border-radius: 40px;
+        padding: 10px;
+        overflow: auto;
+      }
+
+      .main3 {
+        background-color: #7a777459;
+        backdrop-filter: blur(70px);
+        grid-area: main3;
+        border-radius: 40px;
+        padding: 10px;
+        overflow: auto;
+      }
+
+      .main4 {
+        background-color: #7a777459;
+        backdrop-filter: blur(20px);
+        grid-area: main4;
+        border-radius: 40px;
+        padding: 10px;
+        overflow: auto;
+      } */
+
+      img.weather-icon {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        margin-top: 70px;
+        margin-bottom: auto;
+        margin-right: auto;
+      }
+
+      #h11 {
+        font-weight: bolder;
+        color: white;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        font-size: 70px;
+        text-shadow: 20px 10px 34px #0112226e;
+      }
+
+      select {
+        display: flex;
+        margin-left: 90%;
+        border-radius: 7px;
+        border-style: none;
+        cursor: pointer;
+      }
+
+      #hourlyimg {
+        display: flex;
+      }
+
+      #foreicon {
+        /* color: color-mix(in srgb-linear, #134B70 80%, blue 20%); */
+        /* color: color-mix(in srgb-linear, orange 75%, red 25%); */
+        /* color: rgb(255, 166, 0); */
+        color: color-mix(in srgb-linear, orange 70%, red 30%);
+      }
+
+      span {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(13, 13, 82);
+      }
+
+      #loca {
+        color: color-mix(in srgb-linear, orange 75%, red 25%);
+        padding-top: 12%;
+        padding-left: 4%;
+      }
+    
+
+      .container2 {
+        align-content: center;
+        margin: 100px 0 0 200px;
+        width: 70%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 40px;
+        background: transparent;
+        backdrop-filter: blur(20px);
+      }
+
+      .container2 img {
+        max-width: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 15%;
+        height: 75%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #011222;
+        transition: all ease-in-out 0.3s;
+        background: transparent;
+        backdrop-filter: blur(20px);
+      }
+
+      .container2 img:hover {
+        width: 55%;
+        transition: all ease-in-out 0.5s;
+      }
+      #green:hover {
+        color: green;
+        background-color: rgba(115, 148, 110, 0.597);
+      }
+      #wuser {
+        color: #ff6500;
+        font-size: 30px;
+      }
+      /* .main0 {
+        /* grid-area: main0; */
+        /* background-color: #a7a4a159;
+        backdrop-filter: blur(20px);
+        border-radius: 40px;
+        margin-bottom: 0%;
+        padding: 12px;
+        margin-top: 0%;
+        display: block; */
+      /* } */ 
+      #warner {
+        font-size: 30px;
+      }
+   
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div>
+        <button id="home" onclick="scrollToSection1()">Home</button>
+        <button id="hou" onclick="scrollToSection2()">Hourly</button>
+        <button id="peee" onclick="scrollToSection()">Predictions</button>
+        <a href="test.html" target="#"><button id="green">AgriGro</button></a>
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Location" />
+      </div>
+      <!-- <div class="Login">
+        <a href="enter.html" target="#"><button id="lo">Sign-in</button></a>
+      </div> -->
+      <div>
+        <a href="navbar (1).html"><button id="theme">Sunset</button></a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="main0"></div>
+      <div class="main1" id="main1">
+        <div class="con">
+          <div id="weather">
+            <p>Weather will be displayed here.</p>
+          </div>
+        </div>
+        <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon" />
+        <img id="pandaimg" src="" alt="" />
+      </div>
+      <div class="main2">
+        <h1
+          style="
+            font-size: 50px;
+            color: color-mix(in srgb-linear, orange 75%, red 25%);
+          "
+        >
+          Next 10 Days Forecast:
+        </h1>
+        <div id="forecast10">10-day forecast will be displayed here.</div>
+      </div>
+      <div class="main3">
+        <select name="" id="timer">
+          <option value="am">AM</option>
+          <option value="pm">PM</option>
+        </select>
+        <h1
+          id="hourlyf"
+          style="
+            font-size: 50px;
+            color: color-mix(in srgb-linear, orange 75%, red 25%);
+          "
+        >
+          Hourly Forecast
+        </h1>
+        <div id="hourly">Hourly forecast will be displayed here.</div>
+      </div>
+      <div class="main4">
+        <h1
+          id="prediction"
+          style="
+            font-size: 50px;
+            color: color-mix(in srgb-linear, orange 75%, red 25%);
+          "
+        >
+          Weather Prediction
+        </h1>
+        <div id="pred">
+          <ul>
+            <li>
+              <h2>
+                The upcoming fengal cyclone is twin of last year michaung
+                cyclone, which may cause catastrophic damage to Andhra Pradesh
+              </h2>
+            </li>
+            <li>
+              <h2>
+                Heavy to Moderate rains expected in Chittoor,Nellore,Prakasham
+                regions including north of Tamil Nadu and some other regions of
+                south AP.
+              </h2>
+            </li>
+            <li>
+              <h2>
+                AP has already entered into winter season with Araku recording 8
+                degrees.
+              </h2>
+            </li>
+            <li>
+              <h2>
+                Parts of Rayalaseema May Experience Droughts even After a season
+                full of storms.
+              </h2>
+            </li>
+            <li>
+              <h2>
+                We can expect foggy mornings around all the regions in AP by mid
+                november.
+              </h2>
+            </li>
+          </ul>
+        </div>
+        <div class="container2">
+          <img src="Araku.png" alt="" />
+          <img src="foggy roads.jpg" alt="" />
+          <img src="thermometer.jpg" alt="" />
+          <img src="aptemp.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      // Your API key (replace this with your actual key)
+      const API_KEY = "28e70c00fd7c4646a1995924242111";
+
+      // Base URL for the API call
+      const BASE_URL = "https://api.weatherapi.com/v1";
+
+      // Function to fetch weather data
+      async function getWeather(city) {
+        const url = `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&aqi=no&days=10`;
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          console.log(data); // Log the entire data for debugging
+
+          // Check if forecast data exists
+          if (data.forecast && data.forecast.forecastday) {
+            displayWeather(data);
+          } else {
+            throw new Error("Forecast data is missing in the response.");
+          }
+        } catch (error) {
+          console.error("Error fetching the weather data:", error);
+          document.getElementById("weather").innerHTML =
+            "Error fetching data! Please check the console for details.";
+        }
+      }
+
+      function formatForecast(forecast) {
+        let html = "";
+
+        forecast.forecastday.forEach((day) => {
+          html += `<h1>Forecast for ${day.date}</h1>`;
+          html += `<p>Condition: <img id="hourlyimg" src="${day.day.condition.icon}" alt="${day.day.condition.text}"> <h2 id="foreicon">${day.day.condition.text}</h2></p>`;
+          html += `<p>Max Temp: <span>${day.day.maxtemp_c}°C</span></p>`;
+          html += `<p>Min Temp: <span>${day.day.mintemp_c}°C</span></p>`;
+          html += `<p>Avg Temp: <span>${day.day.avgtemp_c}°C</span></p>`;
+          html += `<p>UV Index: <span>${day.day.uv}</span></p>`;
+        });
+
+        return html;
+      }
+
+      function formatHourly(hourly, period) {
+        let html = `<h3>Hourly Forecast (${period.toUpperCase()})</h3>`;
+        html += "<ul>";
+
+        hourly.forEach((hour) => {
+          const hourTime = parseInt(hour.time.split(" ")[1].split(":")[0]);
+          if (period === "am" && hourTime < 12) {
+            html += `<li>${hour.time} - Temp: ${hour.temp_c}°C,<br><br> Condition: <br><img src="${hour.condition.icon}" alt="${hour.condition.text}"> ${hour.condition.text}, Humidity: <br>${hour.humidity}% ,<br> Wind: <br> ${hour.wind_mph} mph</li><br><br>`;
+          } else if (period === "pm" && hourTime >= 12) {
+            html += `<li>${hour.time} - Temp: ${hour.temp_c}°C, Condition: <img src="${hour.condition.icon}" alt="${hour.condition.text}"> ${hour.condition.text}, Humidity: ${hour.humidity}%, Wind: ${hour.wind_mph} mph</li>`;
+          }
+        });
+
+        html += "</ul>";
+        return html;
+      }
+
+      // Function to display weather data
+      function displayWeather(data) {
+        const mad = document.getElementsByClassName("main0");
+        const weatherElement = document.getElementById("weather");
+        const maan = document.getElementById("main1");
+        const hourlyElement = document.getElementById("hourly");
+        const weatherIcon = document.getElementById("weather-icon");
+        const pan = document.getElementById("pandaimg");
+        const forecast10 = document.getElementById("forecast10");
+        const { location, current, forecast } = data;
+        const condition = current.condition.text.toLowerCase();
+        // Convert to lowercase for easier comparison
+
+        weatherElement.innerHTML = `
+          <h1 id="loca" style="font-size: 40px">${location.name}</h1>
+          <h1 id="h11">${current.temp_c}°C</h1>
+          <div>
+            <p>Pressure: <span>${current.pressure_mb} hPa</span></p>
+            <p>Humidity: <span>${current.humidity}%</span></p>
+            <p>Condition: <span>${current.condition.text}</span></p>
+            <p>UV Index: <span>${current.uv}</span></p>
+          </div>
+        `;
+
+        weatherIcon.src = `https:${current.condition.icon}`; // Correct URL for the icon
+
+        // Check weather condition and set video background or fallback image
+        if (condition.includes("rain")) {
+          // Set the background video if the weather condition is clear
+          maan.style.background = "url('Kung fu Panda-Walk Cycle (1).mp4')";
+          maan.style.backgroundSize = "cover"; // Ensure the video covers the div
+          maan.style.backgroundRepeat = "no-repeat"; // Prevent repeating
+          pan.style.display = "none"; // Hide the panda image
+
+          // if (namer) {
+          //   document.querySelector(
+          //     ".main0"
+          //   ).innerHTML = `<h1 id="wuser">Hey, <span>${namer}</span> <br> <h1 id = "warner">Carry an
+          //      <span>umbrella</span> today!!</h1></h1>`;
+          // } else {
+          //   document.querySelector(
+          //     ".main0"
+          //   ).innerHTML = `<h1 id="wuser">Sign in to get more info!</h1>`;
+          // }
+        } else {
+          // Fallback: show the panda image and remove the video background
+          pan.src =
+            "pngtree-relaxed-panda-bear-lounging-in-a-beach-chair-png-image_12243119.png";
+          pan.style.display = "inherit()"; // Show the panda image
+          maan.style.background = "none"; // Remove the video background
+          maan.style.backgroundColor = "#7a777459"; // Fallback background color
+          //
+          // if (namer) {
+          //   document.querySelector(
+          //     ".main0"
+          //   ).innerHTML = `<h1 id="wuser">Hey, <span>${namer}.<br> Have a nice day!</span></h1>`;
+          // } else {
+          //   document.querySelector(
+          //     ".main0"
+          //   ).innerHTML = `<h1 id="wuser">Sign in to get more info!</h1>`;
+          // }
+        }
+
+        forecast10.innerHTML = formatForecast(forecast);
+        const timerValue = document.getElementById("timer").value;
+        hourlyElement.innerHTML = formatHourly(
+          forecast.forecastday[0].hour,
+          timerValue
+        ); // Use the hourly data of the first day
+      }
+
+      // Function to search for weather when button is clicked
+      function searchWeather() {
+        const city = document.getElementById("search").value;
+
+        if (city) {
+          localStorage.setItem("searchLocation", city); // Save the search location in local storage
+          getWeather(city);
+          document.getElementById(
+            "hourly"
+          ).innerText = `Searching for weather in ${city}`; // Displaying a message
+        }
+      }
+
+      // Add event listener to the search input field to allow enter key search
+      document
+        .getElementById("search")
+        .addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            searchWeather();
+          }
+        });
+
+      function scrollToSection() {
+        const skipto = document.getElementById("prediction");
+        skipto.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function scrollToSection1() {
+        const skipto1 = document.getElementById("weather");
+        skipto1.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function scrollToSection2() {
+        const skipto2 = document.getElementById("hourlyf");
+        skipto2.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Add event listener to the timer select dropdown to update hourly forecast
+      document.getElementById("timer").addEventListener("change", function () {
+        const city = localStorage.getItem("searchLocation"); // Retrieve the search location from local storage
+        if (city) {
+          getWeather(city);
+        }
+      });
+
+      // Fetch weather for a default city on page load
+
+      const savedLocation = localStorage.getItem("searchLocation"); // Use saved location or default
+      getWeather(savedLocation);
+      const namer = localStorage.getItem("name");
+      // document.querySelector(".main2").innerHTML =
+      //   `<h1 id="wuser">Hey, ${namer}</h1>` +
+      //   document.querySelector(".main2").innerHTML;
+      // if(namer){
+      //   document.querySelector(".main0").innerHTML +=
+      //   `<h1 id="wuser">Hey, ${namer}</h1>`;
+      // }
+    </script>
+  </body>
+</html>

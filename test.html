@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriGro - Best Crops and Soils</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+      body {
+        background-image: url(a.jpeg);
+        background-size: cover;
+        height: 100vh;
+        color: #111222;
+        font-family: Lexend, sans-serif;
+      }
+
+      #main5 {
+        margin-top: 6%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        background-color: #cac5c270;
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 10px;
+        overflow: auto;
+        height: 70vh;
+        align-items: center;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      select {
+        border-radius: 18px;
+        width: 20%;
+        margin-left: 40%;
+        height: 26px;
+        background-color: orange;
+        border-style: none;
+        font-weight: bolder;
+      }
+
+      #soil-info,
+      #crop-suggestions {
+        margin-top: 15px;
+        font-size: 18px;
+      }
+
+      h3,
+      h4 {
+        font-size: 22px;
+      }
+
+      ul {
+        font-size: 16px;
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AgriGro</h1>
+    <div id="main5">
+      <h1>Enter your location to know the best crop and soil!</h1>
+      <select name="state" id="state">
+        <option value="" disabled selected>Select</option>
+        <option value="ap">Andhra Pradesh</option>
+        <option value="ar">Arunachal Pradesh</option>
+        <option value="as">Assam</option>
+        <option value="bh">Bihar</option>
+        <option value="ch">Chhattisgarh</option>
+        <option value="go">Goa</option>
+        <option value="gj">Gujarat</option>
+        <option value="hr">Haryana</option>
+        <option value="hp">Himachal Pradesh</option>
+        <option value="jk">Jammu & Kashmir</option>
+        <option value="jh">Jharkhand</option>
+        <option value="ka">Karnataka</option>
+        <option value="ke">Kerala</option>
+        <option value="mp">Madhya Pradesh</option>
+        <option value="mh">Maharashtra</option>
+        <option value="mn">Manipur</option>
+        <option value="ml">Meghalaya</option>
+        <option value="mz">Mizoram</option>
+        <option value="ng">Nagaland</option>
+        <option value="od">Odisha</option>
+        <option value="pn">Punjab</option>
+        <option value="rj">Rajasthan</option>
+        <option value="sk">Sikkim</option>
+        <option value="tn">Tamil Nadu</option>
+        <option value="ts">Telangana</option>
+        <option value="tr">Tripura</option>
+        <option value="up">Uttar Pradesh</option>
+        <option value="uk">Uttarakhand</option>
+        <option value="wb">West Bengal</option>
+        <option value="ld">Ladakh</option>
+      </select>
+
+      <div id="soil-info"></div>
+      <div id="crop-suggestions"></div>
+    </div>
+
+    <script>
+      const stateSelect = document.getElementById("state");
+      const soilInfo = document.getElementById("soil-info");
+      const cropSuggestions = document.getElementById("crop-suggestions");
+
+      const soilData = {
+        "andhra pradesh": ["alluvial soil", "red soil", "black soil"],
+        "arunachal pradesh": [
+          "alluvial",
+          "red",
+          "yellow",
+          "black",
+          "sandy",
+          "marshy",
+        ],
+        assam: ["alluvial", "clay loamy", "sandy"],
+        bihar: ["alluvial", "clay", "sandy loam"],
+        chhattisgarh: ["red", "yellow", "alluvial"],
+        goa: ["laterite", "alluvial"],
+        gujarat: ["black", "sandy", "alluvial"],
+        haryana: ["alluvial", "sandy loam"],
+        "himachal pradesh": ["brown forest", "hill soil", "alluvial"],
+        "jammu & kashmir": ["brown forest", "mountain soil", "alluvial"],
+        jharkhand: ["red", "lateritic", "alluvial"],
+        karnataka: ["red", "black", "lateritic"],
+        kerala: ["lateritic", "alluvial", "sandy loam"],
+        "madhya pradesh": ["black", "red", "alluvial"],
+        maharashtra: ["black", "lateritic", "red"],
+        manipur: ["alluvial", "red", "sandy"],
+        meghalaya: ["alluvial", "hill soil", "red"],
+        mizoram: ["hill soil", "alluvial", "red"],
+        nagaland: ["alluvial", "hill soil", "red"],
+        odisha: ["red", "lateritic", "alluvial"],
+        punjab: ["alluvial", "sandy loam"],
+        rajasthan: ["sandy", "loamy", "alluvial"],
+        sikkim: ["hill soil", "alluvial", "sandy loam"],
+        "tamil nadu": ["red", "black", "alluvial"],
+        telangana: ["black", "red", "alluvial"],
+        tripura: ["alluvial", "red", "sandy loam"],
+        "uttar pradesh": ["alluvial", "sandy loam"],
+        uttarakhand: ["mountain soil", "alluvial", "brown forest"],
+        "west bengal": ["alluvial", "red", "lateritic"],
+        ladakh: ["mountain soil", "sandy", "alluvial"],
+      };
+
+      const cropBySoil = {
+        "andhra pradesh": {
+          winter: [
+            { crop: "Chickpeas", soil: "black soil" },
+            { crop: "Sunflower", soil: "alluvial soil" },
+          ],
+          summer: [
+            { crop: "Jowar", soil: "red soil" },
+            { crop: "Groundnut", soil: "black soil" },
+          ],
+        },
+        "arunachal pradesh": {
+          winter: [
+            { crop: "Wheat", soil: "alluvial" },
+            { crop: "Mustard", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Millets", soil: "yellow soil" },
+          ],
+        },
+
+        assam: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Mustard", soil: "clay loamy soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "sandy soil" },
+            { crop: "Jute", soil: "alluvial soil" },
+          ],
+        },
+        bihar: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Barley", soil: "clay soil" },
+          ],
+          summer: [
+            { crop: "Maize", soil: "sandy loam soil" },
+            { crop: "Pulses", soil: "alluvial soil" },
+          ],
+        },
+        chhattisgarh: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Linseed", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "yellow soil" },
+            { crop: "Groundnut", soil: "alluvial soil" },
+          ],
+        },
+        goa: {
+          winter: [
+            { crop: "Wheat", soil: "laterite soil" },
+            { crop: "Barley", soil: "alluvial soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Sugarcane", soil: "laterite soil" },
+          ],
+        },
+        haryana: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Mustard", soil: "sandy loam soil" },
+          ],
+          summer: [
+            { crop: "Bajra", soil: "alluvial soil" },
+            { crop: "Cotton", soil: "sandy loam soil" },
+          ],
+        },
+        "himachal pradesh": {
+          winter: [
+            { crop: "Wheat", soil: "brown forest soil" },
+            { crop: "Barley", soil: "hill soil" },
+          ],
+          summer: [
+            { crop: "Maize", soil: "alluvial soil" },
+            { crop: "Millets", soil: "hill soil" },
+          ],
+        },
+        "jammu & kashmir": {
+          winter: [
+            { crop: "Wheat", soil: "mountain soil" },
+            { crop: "Barley", soil: "brown forest soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Maize", soil: "mountain soil" },
+          ],
+        },
+        jharkhand: {
+          winter: [
+            { crop: "Wheat", soil: "red soil" },
+            { crop: "Mustard", soil: "lateritic soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Maize", soil: "red soil" },
+          ],
+        },
+        karnataka: {
+          winter: [
+            { crop: "Wheat", soil: "red soil" },
+            { crop: "Ragi", soil: "black soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "lateritic soil" },
+            { crop: "Sugarcane", soil: "black soil" },
+          ],
+        },
+        kerala: {
+          winter: [
+            { crop: "Pepper", soil: "lateritic soil" },
+            { crop: "Ginger", soil: "alluvial soil" },
+          ],
+          summer: [
+            { crop: "Paddy", soil: "sandy loam soil" },
+            { crop: "Banana", soil: "alluvial soil" },
+          ],
+        },
+        "madhya pradesh": {
+          winter: [
+            { crop: "Wheat", soil: "black soil" },
+            { crop: "Linseed", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Soybean", soil: "black soil" },
+            { crop: "Maize", soil: "alluvial soil" },
+          ],
+        },
+        maharashtra: {
+          winter: [
+            { crop: "Wheat", soil: "black soil" },
+            { crop: "Gram", soil: "lateritic soil" },
+          ],
+          summer: [
+            { crop: "Cotton", soil: "black soil" },
+            { crop: "Sugarcane", soil: "red soil" },
+          ],
+        },
+        punjab: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Mustard", soil: "sandy loam soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Cotton", soil: "sandy loam soil" },
+          ],
+        },
+        rajasthan: {
+          winter: [
+            { crop: "Wheat", soil: "loamy soil" },
+            { crop: "Mustard", soil: "sandy soil" },
+          ],
+          summer: [
+            { crop: "Bajra", soil: "sandy soil" },
+            { crop: "Cotton", soil: "alluvial soil" },
+          ],
+        },
+        sikkim: {
+          winter: [
+            { crop: "Wheat", soil: "hill soil" },
+            { crop: "Barley", soil: "alluvial soil" },
+          ],
+          summer: [
+            { crop: "Maize", soil: "sandy loam soil" },
+            { crop: "Millets", soil: "hill soil" },
+          ],
+        },
+        "tamil nadu": {
+          winter: [
+            { crop: "Wheat", soil: "black soil" },
+            { crop: "Sugarcane", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "alluvial soil" },
+            { crop: "Cotton", soil: "black soil" },
+          ],
+        },
+        telangana: {
+          winter: [
+            { crop: "Wheat", soil: "black soil" },
+            { crop: "Maize", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Cotton", soil: "black soil" },
+            { crop: "Rice", soil: "alluvial soil" },
+          ],
+        },
+        tripura: {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Mustard", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "sandy loam soil" },
+            { crop: "Maize", soil: "alluvial soil" },
+          ],
+        },
+        "uttar pradesh": {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Barley", soil: "sandy loam soil" },
+          ],
+          summer: [
+            { crop: "Sugarcane", soil: "alluvial soil" },
+            { crop: "Pulses", soil: "sandy loam soil" },
+          ],
+        },
+        uttarakhand: {
+          winter: [
+            { crop: "Wheat", soil: "mountain soil" },
+            { crop: "Barley", soil: "brown forest soil" },
+          ],
+          summer: [
+            { crop: "Maize", soil: "alluvial soil" },
+            { crop: "Pulses", soil: "mountain soil" },
+          ],
+        },
+        "west bengal": {
+          winter: [
+            { crop: "Wheat", soil: "alluvial soil" },
+            { crop: "Potato", soil: "red soil" },
+          ],
+          summer: [
+            { crop: "Rice", soil: "lateritic soil" },
+            { crop: "Jute", soil: "alluvial soil" },
+          ],
+        },
+        ladakh: {
+          winter: [
+            { crop: "Barley", soil: "mountain soil" },
+            { crop: "Buckwheat", soil: "sandy soil" },
+          ],
+          summer: [
+            { crop: "Potato", soil: "alluvial soil" },
+            { crop: "Vegetables", soil: "sandy soil" },
+          ],
+        },
+
+        // Add crop and soil data for other states similarly
+      };
+
+      stateSelect.addEventListener("change", function () {
+        const state =
+          stateSelect.options[stateSelect.selectedIndex].text.toLowerCase();
+        soilInfo.innerHTML = "";
+        cropSuggestions.innerHTML = "";
+
+        // Display common soils
+        if (soilData[state]) {
+          soilInfo.innerHTML = `
+                    <h3>Common Soils in ${
+                      stateSelect.options[stateSelect.selectedIndex].text
+                    }:</h3>
+                    <ul>${soilData[state]
+                      .map((soil) => `<li>${soil}</li>`)
+                      .join("")}</ul>
+                `;
+        }
+
+        // Display crop suggestions with recommended soils
+        if (cropBySoil[state]) {
+          const winterCrops = cropBySoil[state]["winter"]
+            .map(
+              (cropInfo) =>
+                `<li>${cropInfo.crop} - Recommended Soil: ${cropInfo.soil}</li>`
+            )
+            .join("");
+          const summerCrops = cropBySoil[state]["summer"]
+            .map(
+              (cropInfo) =>
+                `<li>${cropInfo.crop} - Recommended Soil: ${cropInfo.soil}</li>`
+            )
+            .join("");
+
+          cropSuggestions.innerHTML = `
+                    <h3>Crop Recommendations:</h3>
+                    <h4>Winter Crops</h4>
+                    <ul>${winterCrops}</ul>
+                    <h4>Summer Crops</h4>
+                    <ul>${summerCrops}</ul>
+                `;
+        }
+      });
+    </script>
+  </body>
+</html>
