@@ -10,6 +10,12 @@
         width: 100%;
         font-family: Lexend, sans-serif;
       }
+      #sign{
+        display: none;
+      }
+      #pandaimg{
+        display: none;
+      }
   .grid {
     display: grid;
     grid-template-areas:
