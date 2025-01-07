@@ -100,7 +100,7 @@ function displayWeather(data) {
   } else {
     // Fallback: show the panda image and remove the video background
     pan.src ="pandabeach.png"
-    pan.style.display = "block"; // Show the panda image
+    pan.style.display = "inherit()"; // Show the panda image
     maan.style.background = "none"; // Remove the video background
     maan.style.backgroundColor = "#7a777459"; // Fallback background color
 
