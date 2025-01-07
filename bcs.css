@@ -35,7 +35,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 95%;
-    background-color: transparent;
+    /* background-color: transparent; */
     box-shadow: 9px 14px 20px #031322b9;
     backdrop-filter: blur(3000px);  
     color: wheat;
@@ -183,34 +183,329 @@
     margin-left: 20px;
     margin-right: auto;
   }
+  #home,
+  #hou,
+  #peee,
+  #lo {
+    display: none;
+  }
 }
+@media screen and (min-width: 701px)and (max-width:8000px){
+  body {
+    background-image: url(journey-painting-wallpaper\ \(1\).jpg);
+    background-size: cover;
+    color: white;
+    margin: 0;
+    height:100vh;
+    width: 100%;
+    font-family: Lexend, sans-serif;
+  }
 
-body {
-  /* background-image: url(/journey-painting-wallpaper\ \(1\).jpg); */
-  /* background-image: url(galaxy.jpg); */
-  /* background-color: #f4f6ff; */
-  background-size: cover;
-  color: #011222;
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
-  font-family: Lexend, sans-serif;
-}
+  .container {
+    margin-top: 12px;
+    /* background-color: mintcream; */
+    /* background-color:rgba(254, 167, 5, 0.897); */
+    /* color: aliceblue; */
+    /* background-color: goldenrod; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    box-shadow: 9px 14px 20px #031322b9;
+    backdrop-filter: blur(3000px);  
+    color: wheat;
+    border: 0.5px solid #1112224d;
+  }
 
-.container {
-  margin-top: 12px;
-  /* background-color: mintcream; */
-  background-color: rgba(254, 167, 5, 0.897);
+  button {
+    margin-right: 45px;
+    /* color: #011222; */
+    border: none;
 
-  border-radius: 25px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+    color: rgb(248, 244, 237);
+    background: transparent;
+    font-family: Lexend;
+    border-radius: 24px;
+    font-weight:bolder
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+    flex-grow: 1;
+    color: #111222;
+  }
+
+  input {
+    text-align: center;
+    border-radius: 7px;
+    font-weight: bolder;
+    color: black;
+    border: none;
+    font-size: medium;
+    width: 70%;
+    background-color: rgb(247, 225, 182);
+    margin-left: 20px;
+  }
+
+  input:hover {
+    border-color: goldenrod;
+    transition: all ease-in-out 0.22s;
+  }
+  .main0{
+    display: none;
+  }
+
+  button:hover {
+    border-radius: 7px;
+    /* background-color: rgba(163, 155, 138, 0.26); */
+    background-color: #08040295;
+    backdrop-filter: blur(70px);
+
+
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+  }
+
+  .grid {
+  display: grid;
+  grid-template-areas:
+    "main1 main2"
+    "main3 main3"
+    "main4 main4";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 10.5fr 8fr 1fr;
+  gap: 16px;
+  width: 95vw;
+  height: 300vh;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
-  box-shadow: 9px 14px 34px #03132293;
 }
+
+
+  .main1 {
+    /* background: url('Kungfu Panda Panda GIF - Kungfu Panda Panda - Discover & Share GIFs.mp4'); */
+    background-color: #5f5c5a4e;
+    backdrop-filter: blur(30px);
+    grid-area: main1;
+    border-radius: 40px;
+    padding-top: 0%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+    /* background:url("Kung fu Panda-Walk Cycle (1).mp4"); */
+
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main2 {
+    background-color: #5f5c5a4e;
+    backdrop-filter: blur(30px);
+    grid-area: main2;
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .main3 {
+    background-color: #5f5c5a4e;
+    backdrop-filter: blur(30px);
+    grid-area: main3;
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .main4 {
+    background-color: #5f5c5a4e;
+    backdrop-filter: blur(20px);
+    grid-area: main4;
+    border-radius: 40px;
+    /* display: none; */
+    padding: 10px;
+    /* overflow: auto; */
+  }
+
+  img.weather-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin-top: 70px;
+    margin-bottom: auto;
+    margin-right: auto;
+  }
+
+  #h11 {
+    font-weight: bolder;
+    color: mintcream;
+    font-size: 75px;
+  }
+
+  select {
+    display: flex;
+    margin-left: 90%;
+    border-radius: 7px;
+    border-style: none;
+    cursor: pointer;
+  }
+
+  #hourlyimg {
+    display: flex;
+  }
+
+  #foreicon {
+    color: rgb(255, 166, 0);
+  }
+
+  span {
+    color: mintcream;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  #loca {
+    color: rgb(255, 166, 0);
+  }
+
+  #pred {
+    max-width: fit-content;
+    margin-left: auto;
+    background-color: #cac5c270;
+    backdrop-filter: blur(20px);
+    margin-right: auto;
+    border-radius: 40px;
+    padding: 10px;
+    /* overflow: auto; */
+    /* display: none; */
+  }
+
+  .container2 {
+    align-content: center;
+    margin: 100px 0 0 200px;
+    width: 70%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 40px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+
+  }
+
+  .container2 img {
+    max-width: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 15%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 10px;
+    /* border: 2px solid #011222; */
+    border: 2px solid rgba(254, 167, 5, 0.897);
+    /* border: 2px solid fuchsia; */
+    ;
+    transition: all ease-in-out 0.3s;
+    background: transparent;
+    backdrop-filter: blur(20px);
+  }
+
+  .container2 img:hover {
+    width: 55%;
+    transition: all ease-in-out 0.5s;
+  }
+  #wuser {
+      color: #ff6500;
+      font-size: 30px;
+    }
+    .main0 {
+      /* grid-area: main0; */
+      background-color: #7a79775b;
+      backdrop-filter: blur(30px);
+      border-radius: 40px;
+      margin-bottom: 0%;
+      padding: 12px;
+      margin-top: 0%;
+      display: none;
+    }
+    #warner {
+      font-size: 30px;
+    }
+    
+    .main1::-webkit-scrollbar{
+      display: hidden;
+    }
+    .main1:hover{
+      box-shadow: 9px 14px 34px #031322b9;
+      transition: all ease-in-out 0.3s;
+      width: 99%;
+      background-color: #cac5c231;
+
+      border-radius: 55px;
+      border: 0.5px #ff6500;
+      margin: 0%;
+      backdrop-filter: blur(70px);
+
+    }
+    footer {
+      margin-top: 100vh;
+      text-align: center;
+      font-weight: bolder;
+    }
+    .main2:hover{
+      box-shadow: 9px 14px 34px #031322b9;
+      transition: all ease-in-out 0.3s;
+      /* width: 100%; */
+      border-radius: 55px;
+      border: 1px  ff6500;
+      backdrop-filter: blur(70px);
+      background-color: #cac5c231;
+
+      /* background-color: #cac5c231; */
+
+
+      /* border: groove; */
+    }
+    .main3:hover{
+      box-shadow: 9px 14px 34px #031322b9;
+      transition: all ease-in-out 0.3s;
+      width: 99%;
+      border-radius: 55px;
+      border: 1px solid ff6500;
+      backdrop-filter: blur(70px);
+      background-color: #cac5c231;
+      
+
+
+    }
+    .main0:hover{
+      box-shadow: 9px 14px 34px #031322b9;
+      transition: all ease-in-out 0.35s;
+      /* width: 100%; */
+      border-radius: 55px;
+      border: 1px solid ff6500;
+      background-color: #cac5c231;
+
+    }
+    #green:hover{
+      background-color: rgba(10, 149, 10, 0.602);
+
+    }
+}
+
+
+
+/*  */
+
+
 
 button {
     margin-right: 45px;
@@ -389,12 +684,7 @@ select {
     background: transparent;
     backdrop-filter: blur(20px);
   }
-  #home,
-  #hou,
-  #peee,
-  #lo {
-    display: none;
-  }
+
 
 .container2 img:hover {
   width: 55%;

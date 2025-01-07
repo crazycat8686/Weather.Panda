@@ -53,6 +53,11 @@
     overflow: auto;
   }
 
+  footer {
+    margin-top: 100vh;
+    text-align: center;
+    font-weight: bolder;
+  }
   .main1 {
     /* background-color: #7a777459; */
     /* background-image: url(pandabeach.png); */
@@ -161,6 +166,282 @@
     background-color: rgb(247, 225, 182);
     margin-left: 12%;
     margin-right: auto;
+  }
+}
+@media screen and (min-width: 701px)and (max-width:8000px){
+  @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+  body {
+    /* background-image: url(/journey-painting-wallpaper\ \(1\).jpg); */
+    /* background-image: url(galaxy.jpg); */
+    background-color: #f4f6ff;
+    background-size: cover;
+    color: #011222;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    font-family: Lexend, sans-serif;
+  }
+
+  .container {
+    margin-top: 12px;
+    /* background-color: mintcream; */
+    background-color: rgba(254, 167, 5, 0.897);
+
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    box-shadow: 9px 14px 34px #03132293;
+  }
+
+  button {
+    margin-right: 45px;
+    color: #011222;
+    background: transparent;
+    border: none;
+    font-family: Lexend;
+    border-radius: 40px;
+    font-weight: bolder;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+    flex-grow: 1;
+  }
+
+  input {
+    text-align: center;
+    border-radius: 7px;
+    font-weight: bolder;
+    color: black;
+    border: none;
+    font-size: medium;
+    width: 70%;
+    background-color: rgb(247, 225, 182);
+    margin-left: 20px;
+  }
+
+  input:hover {
+    border-color: goldenrod;
+    transition: all ease-in-out 0.22s;
+  }
+
+  button:hover {
+    border-radius: 7px;
+    /* background-color: rgba(163, 155, 138, 0.26); */
+    background-color: rgb(247, 225, 182);
+    /* background-color:color-mix(in srgb-linear, goldenrod 80%, yellow 20%); */
+
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-areas:
+      "main1 main2"
+      "main3 main3"
+      "main4 main4";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 10.5fr 8fr 1fr;
+    gap: 16px;
+    width: 95vw;
+    height: 300vh;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main1 {
+    background-color: #7a777459;
+    /* backdrop-filter: blur(70px); */
+    grid-area: main1;
+    border-radius: 40px;
+    padding-top: 0%;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background: url("Kung fu Panda-Walk Cycle (1).mp4"); */
+  }
+
+  .main2 {
+    background-color: #7a777459;
+    backdrop-filter: blur(70px);
+    grid-area: main2;
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .main3 {
+    background-color: #7a777459;
+    backdrop-filter: blur(70px);
+    grid-area: main3;
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .main4 {
+    background-color: #7a777459;
+    backdrop-filter: blur(20px);
+    grid-area: main4;
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  img.weather-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin-top: 70px;
+    margin-bottom: auto;
+    margin-right: auto;
+  }
+
+  #h11 {
+    font-weight: bolder;
+    color: white;
+    font-size: 70px;
+    text-shadow: 20px 10px 34px #0112226e;
+  }
+
+  select {
+    display: flex;
+    margin-left: 90%;
+    border-radius: 7px;
+    border-style: none;
+    cursor: pointer;
+  }
+
+  #hourlyimg {
+    display: flex;
+  }
+
+  #foreicon {
+    /* color: color-mix(in srgb-linear, #134B70 80%, blue 20%); */
+    /* color: color-mix(in srgb-linear, orange 75%, red 25%); */
+    /* color: rgb(255, 166, 0); */
+    color: color-mix(in srgb-linear, orange 70%, red 30%);
+  }
+
+  span {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(13, 13, 82);
+  }
+
+  #loca {
+    color: color-mix(in srgb-linear, orange 75%, red 25%);
+  }
+  #pred {
+    background-color: #7a777459;
+    max-width: fit-content;
+    margin-left: auto;
+
+    margin-right: auto;
+    backdrop-filter: blur(70px);
+    border-radius: 40px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .container2 {
+    align-content: center;
+    margin: 100px 0 0 200px;
+    width: 70%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 40px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+  }
+
+  .container2 img {
+    max-width: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 15%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #011222;
+    transition: all ease-in-out 0.3s;
+    background: transparent;
+    backdrop-filter: blur(20px);
+  }
+
+  .container2 img:hover {
+    width: 55%;
+    transition: all ease-in-out 0.5s;
+  }
+  #green:hover {
+    color: green;
+    background-color: rgba(115, 148, 110, 0.597);
+  }
+  #wuser {
+    color: #ff6500;
+    font-size: 30px;
+  }
+  .main0 {
+    /* grid-area: main0; */
+    background-color: #a7a4a159;
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    margin-bottom: 0%;
+    padding: 12px;
+    margin-top: 0%;
+    display: none
+  }
+  #warner {
+    font-size: 30px;
+  }
+  .main1::-webkit-scrollbar {
+    display: hidden;
+  }
+  .main1:hover {
+    box-shadow: 9px 14px 34px #031322b9;
+    transition: all ease-in-out 0.3s;
+    width: 100%;
+    border-radius: 55px;
+    border: 1px solid ff6500;
+    background-color: #ffff;
+    backdrop-filter: blur(0%);
+  }
+  .main2:hover {
+    box-shadow: 9px 14px 34px #031322b9;
+    transition: all ease-in-out 0.3s;
+    /* width: 100%; */
+    border-radius: 55px;
+    border: 1px solid ff6500;
+  }
+  .main3:hover {
+    box-shadow: 9px 14px 34px #031322b9;
+    transition: all ease-in-out 0.3s;
+    width: 100%;
+    border-radius: 55px;
+    border: 1px solid ff6500;
+  }
+  .main0:hover {
+    box-shadow: 9px 14px 34px #031322b9;
+    transition: all ease-in-out 0.3s;
+    /* width: 100%; */
+    border-radius: 55px;
+    border: 1px solid ff6500;
+    text-shadow: 10px 20px 30px #22140183;
   }
 }
 
