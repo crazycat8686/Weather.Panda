@@ -99,8 +99,7 @@ function displayWeather(data) {
 
   } else {
     // Fallback: show the panda image and remove the video background
-    pan.src =
-      "pngtree-relaxed-panda-bear-lounging-in-a-beach-chair-png-image_12243119.png";
+    pan.src ="pandabeach"
     pan.style.display = "block"; // Show the panda image
     maan.style.background = "none"; // Remove the video background
     maan.style.backgroundColor = "#7a777459"; // Fallback background color

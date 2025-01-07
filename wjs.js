@@ -51,7 +51,7 @@ function formatHourly(hourly, period) {
   hourly.forEach((hour) => {
     const hourTime = parseInt(hour.time.split(" ")[1].split(":")[0]);
     if (period === "am" && hourTime < 12) {
-      html += `<li>${hour.time} - Temp: ${hour.temp_c}°C,<br><br> Condition: <br><img src="${hour.condition.icon}" alt="${hour.condition.text}"> ${hour.condition.text}, Humidity: <br>${hour.humidity}% ,<br> Wind: <br> ${hour.wind_mph} mph</li><br><br>`;
+      html += `<li>${hour.time} - Temp: ${hour.temp_c}°C, Condition: <img src="${hour.condition.icon}" alt="${hour.condition.text}"> ${hour.condition.text}, Humidity: ${hour.humidity}%, Wind: ${hour.wind_mph} mph</li>`;
     } else if (period === "pm" && hourTime >= 12) {
       html += `<li>${hour.time} - Temp: ${hour.temp_c}°C, Condition: <img src="${hour.condition.icon}" alt="${hour.condition.text}"> ${hour.condition.text}, Humidity: ${hour.humidity}%, Wind: ${hour.wind_mph} mph</li>`;
     }
@@ -107,8 +107,7 @@ function displayWeather(data) {
     // }
   } else {
     // Fallback: show the panda image and remove the video background
-    pan.src =
-      "pngtree-relaxed-panda-bear-lounging-in-a-beach-chair-png-image_12243119.png";
+    pan.src ="pandabeach"
     pan.style.display = "inherit()"; // Show the panda image
     maan.style.background = "none"; // Remove the video background
     maan.style.backgroundColor = "#7a777459"; // Fallback background color

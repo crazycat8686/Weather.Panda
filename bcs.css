@@ -147,7 +147,7 @@
     /* border: groove; */
   }
   footer {
-    margin-top: 100vh;
+    top: 100%;
     text-align: center;
     font-weight: bolder;
   }
